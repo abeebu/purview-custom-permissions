@@ -1,0 +1,15 @@
+name: Test pipeline
+
+on: [push]
+
+jobs:
+  workflow-test:
+    runs-on: ubuntu-latest
+    name: Testing locally with act
+    steps:
+      - name: Set purview permissions
+        uses: ./ 
+        id: purview-permissions
+        with:
+          purview_name: "abeeb"
+          principal_id: "id"

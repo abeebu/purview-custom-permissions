@@ -1,0 +1,15 @@
+name: 'Purview Permissions Github Action'
+description: 'Set permissions for purview'
+inputs:
+  purview_name:
+    description: 'Name of the purview instance'
+    required: true
+  principal_id:
+    description: 'Identity to associate permission with'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.purview_name }}
+    - ${{ inputs.principal_id }}
