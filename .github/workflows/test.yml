@@ -3,13 +3,31 @@ name: Test pipeline
 on: [push]
 
 jobs:
-  workflow-test:
+  prepare:
+    name: Setup runner
     runs-on: ubuntu-latest
-    name: Testing locally with act
     steps:
+      - name: Azure CLI script
+        id: login
+        run: az login --tenant ${{ secrets.TENANT_ID}}
+        
+
+  workflow-test:
+    name: 'Set purview permissions with workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Set purview permissions
         uses: ./ 
         id: purview-permissions
         with:
           purview_name: "abeeb"
-          principal_id: "id"
+          object_id: "id"
+          user_type: "U"
+          roles: |
+            root_collection_admin
+            data_reader
+            data_source_admin
+

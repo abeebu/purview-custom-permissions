@@ -7,7 +7,9 @@ RUN	apk add --no-cache \
   jq
 
 COPY entrypoint.sh /entrypoint.sh
+COPY functions-lib-to-set-purview-permissions.sh /functions-lib-to-set-purview-permissions.sh
 
 RUN chmod +x /entrypoint.sh
+RUN chmod +x /functions-lib-to-set-purview-permissions.sh
 
 ENTRYPOINT ["/entrypoint.sh"]

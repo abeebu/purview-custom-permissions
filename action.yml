@@ -4,12 +4,19 @@ inputs:
   purview_name:
     description: 'Name of the purview instance'
     required: true
-  principal_id:
+  object_id:
     description: 'Identity to associate permission with'
     required: true
+  user_type:
+    description: 'U for user and G for security group'
+    required: true
+  roles:
+    description: 'Set roles to assign'
+    required: true
+
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.purview_name }}
-    - ${{ inputs.principal_id }}
+  using: 'composite'
+  steps:
+    - run: |
+        ./entrypoint.sh ${{ inputs.purview_name }} ${{ inputs.object_id }} ${{ inputs.user_type}} ${{ inputs.roles }}
+      shell: bash
