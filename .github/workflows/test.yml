@@ -7,9 +7,13 @@ jobs:
     name: Setup runner
     runs-on: ubuntu-latest
     steps:
+      - name: 'Az CLI login'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Azure CLI script
-        id: login
-        run: az login --tenant ${{ secrets.TENANT_ID}}
+        id: verify
+        run: az account show
         
 
   workflow-test:
