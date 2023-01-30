@@ -17,6 +17,11 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: |
+    - name: Azure CLI script
+      id: verify
+      run: az account show
+
+    - name: Assign permissions
+      run: |
         ./entrypoint.sh ${{ inputs.purview_name }} ${{ inputs.object_id }} ${{ inputs.user_type}} ${{ inputs.roles }}
       shell: bash
