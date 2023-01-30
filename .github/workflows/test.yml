@@ -2,6 +2,10 @@ name: Test pipeline
 
 on: [push]
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   prepare:
     name: Setup runner
