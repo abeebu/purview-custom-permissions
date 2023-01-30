@@ -11,10 +11,10 @@ rolesMap["data_source_admin"]='set-data-source-admin'
 rolesMap["data_share_contributor"]='set-data-share-contributor' 
 rolesMap["workflow_admin"]='set-workflow-admin' 
 
-roles="${4}"
+roles="${INPUT_ROLES}"
 
 #Assign each role passed in the argument
 for role in $roles
 do
-  ${rolesMap[${role}]} "$1" "$2" "$3"
+  ${rolesMap[${role}]} "$INPUT_PURVIEW_NAME" "$INPUT_OBJECT_ID" "$INPUT_USER_TYPE"
 done
