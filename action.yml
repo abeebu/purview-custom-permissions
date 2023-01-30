@@ -20,7 +20,8 @@ runs:
     - name: Azure CLI script
       id: verify
       shell: bash
-      run: az account show
+      run: |
+        az account show
 
     - name: Assign permissions
       run: |
