@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Here"
+
 set -e
 source ./functions-lib-to-set-purview-permissions.sh; 
 
