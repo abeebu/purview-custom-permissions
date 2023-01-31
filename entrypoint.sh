@@ -11,10 +11,13 @@ rolesMap["data_source_admin"]='set-data-source-admin'
 rolesMap["data_share_contributor"]='set-data-share-contributor' 
 rolesMap["workflow_admin"]='set-workflow-admin' 
 
-roles="$4"
+IFS=','
+
+#Read the roles into an array based on comma delimiter
+read -a roles <<< "$4"
 
 #Assign each role passed in the argument
-for role in $roles
+for role in "${roles[@]}"
 do
   ${rolesMap[${role}]} "$1" "$2" "$3"
 done
