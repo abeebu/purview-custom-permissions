@@ -25,7 +25,7 @@ jobs:
         run: |
           az config set extension.use_dynamic_install=yes_without_prompt
           az purview account add-root-collection-admin --name "abeebu" --object-id "fb3d1d54-235e-4217-866c-1e1095863bb9" -g "github-workflow"
-          sleep 30
+          sleep 100
         shell: bash
 
       - name: Set purview permissions
