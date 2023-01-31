@@ -22,7 +22,9 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: 'Set current client id as root collection admin'
-        run:  az purview account add-root-collection-admin --name "abeebu"  --object-id ${{ secrets.AZURE_CLIENT_ID }}
+        run:  |
+          az config set extension.use_dynamic_install=yes_without_prompt
+          az purview account add-root-collection-admin --name "abeebu"  --object-id ${{ secrets.AZURE_CLIENT_ID }}
         shell: bash
 
       - name: Set purview permissions
