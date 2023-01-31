@@ -12,11 +12,10 @@ rolesMap["data_share_contributor"]='set-data-share-contributor'
 rolesMap["workflow_admin"]='set-workflow-admin' 
 
 roles="$4"
-echo "$1"
-echo $roles
 
 #Assign each role passed in the argument
 for role in $roles
 do
+  echo "$role" 
   ${rolesMap[${role}]} "$1" "$2" "$3"
 done
