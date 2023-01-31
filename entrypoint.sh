@@ -13,6 +13,8 @@ rolesMap["workflow_admin"]='set-workflow-admin'
 
 roles="${INPUT_ROLES}"
 
+echo $roles
+
 #Assign each role passed in the argument
 for role in $roles
 do
