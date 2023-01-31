@@ -19,7 +19,7 @@ function set-permission() {
     body=$(curl -s -H "Authorization: Bearer $purview_access_token" "https://$1.purview.azure.com/policystore/collections/$1/metadataPolicy?api-version=2021-07-01")
     metadata_policy_id=$(echo "$body" | jq -r '.id')   
 
-    echo $metadata_policy_id;
+    echo $body;
 
     if [ "$3" == "U" ]; then
         body=$(echo "$body" | 
