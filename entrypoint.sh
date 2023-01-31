@@ -17,5 +17,5 @@ roles="$4"
 for role in $roles
 do
   echo "$role" 
-  ${rolesMap[${role}]} "$1" "$2" "$3"
+  #${rolesMap[${role}]} "$1" "$2" "$3"
 done
