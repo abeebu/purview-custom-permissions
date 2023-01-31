@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "Here"
-
 set -e
 source ./functions-lib-to-set-purview-permissions.sh; 
 
@@ -17,6 +15,7 @@ roles="${INPUT_ROLES}"
 
 #Assign each role passed in the argument
 for role in $roles
+echo $role
 do
   ${rolesMap[${role}]} "$INPUT_PURVIEW_NAME" "$INPUT_OBJECT_ID" "$INPUT_USER_TYPE"
 done
