@@ -16,6 +16,5 @@ roles="$4"
 #Assign each role passed in the argument
 for role in $roles
 do
-  echo "$role" 
-  #${rolesMap[${role}]} "$1" "$2" "$3"
+  ${rolesMap[${role}]} "$1" "$2" "$3"
 done

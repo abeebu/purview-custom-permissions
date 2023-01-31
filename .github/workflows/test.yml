@@ -25,8 +25,8 @@ jobs:
         uses: ./ 
         id: purview-permissions
         with:
-          purview_name: "abeeb"
-          object_id: "id"
+          purview_name: "abeebu"
+          object_id: "fb3d1d54-235e-4217-866c-1e1095863bb9"
           user_type: "U"
-          roles: "root_collection_admin data_reader data_source_admin"
+          roles: "root_collection_admin"
 
