@@ -28,8 +28,5 @@ jobs:
           purview_name: "abeeb"
           object_id: "id"
           user_type: "U"
-          roles: |
-            root_collection_admin
-            data_reader
-            data_source_admin
+          roles: root_collection_admin data_reader data_source_admin
 
