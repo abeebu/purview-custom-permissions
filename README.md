@@ -5,7 +5,7 @@ This action allows you to assign purview permissions to a user or security group
 ## Usage
 
 
-### Example
+### Sample Workflow
 The action can be used in your github workflows like below:
 
 ```yaml
