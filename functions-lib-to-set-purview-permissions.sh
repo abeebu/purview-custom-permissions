@@ -64,7 +64,7 @@ function set-permission() {
         exit 2
     fi
 
-    # WARNING: Concurrent calls may lead to inconsistencies on the Purview permissions. Associated story: 5230
+    # WARNING: Concurrent calls may lead to inconsistencies on the Purview permissions.
     curl -H "Authorization: Bearer $purview_access_token" -H "Content-Type: application/json" \
         -d "$body" -X PUT -i -s "https://$1.purview.azure.com/policystore/metadataPolicies/${metadata_policy_id}?api-version=2021-07-01" > /dev/null
 }
