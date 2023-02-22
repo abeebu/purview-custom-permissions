@@ -1,6 +1,9 @@
 # Github Action to Set Purview Permissions
 
-This action allows you to assign purview permissions to a user or security group.
+## Problem Statement
+Managing purview permissions cannot be easily done programmatically because permissions are managed in the data plane and not in IAM. This makes it difficult to assign permissions using IaCs such as terraform or bicep. Also, the only permission currently available to assign via `az cli` is the root collection admin. 
+
+This action allows you to assign any purview permission(s) to a user or security group.
 
 ## Usage
 
@@ -33,7 +36,7 @@ jobs:
       - name: Set purview permissions
         uses: abeebu/purview-assign-permissions@v1
         with:
-          purview_name: "Purview name"   # name of the purview account  
+          purview_name: "<purview_account_name>"  # as in https://<purview_account_name>.purview.azure.com  
           object_id: "object-id"  # Object Id to assign permissions to
           user_type: "U" # 'U' for user and 'G' for security group
           roles: "data_reader,data_curator,data_share_contributor" # list of roles to assign separated by comma
