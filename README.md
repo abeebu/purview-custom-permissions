@@ -34,7 +34,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Set purview permissions
-        uses: abeebu/purview-assign-permissions@v1
+        uses: abeebu/purview-custom-permissions@v1
         with:
           purview_name: "<purview_account_name>"  # as in https://<purview_account_name>.purview.azure.com  
           object_id: "object-id"  # Object Id to assign permissions to
