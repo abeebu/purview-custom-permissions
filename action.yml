@@ -1,5 +1,9 @@
 name: 'Purview Permissions Github Action'
 description: 'Set permissions for purview'
+branding:
+  icon: 'table',
+  color: 'blue'
+
 inputs:
   purview_name:
     description: 'Name of the purview instance'
