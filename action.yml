@@ -24,6 +24,5 @@ runs:
 
     - name: Assign permissions
       run: |
-        source ${{ github.action_path }}/functions-lib-to-set-purview-permissions.sh
         ${{ github.action_path }}/entrypoint.sh ${{ inputs.purview_name }} ${{ inputs.object_id }} ${{ inputs.user_type}} ${{ inputs.roles }} 
       shell: bash
