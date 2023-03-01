@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -e
-source "$PWD"/functions-lib-to-set-purview-permissions.sh; 
 
 declare -A rolesMap
 rolesMap["data_reader"]='set-data-reader' 
