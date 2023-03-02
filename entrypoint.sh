@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-source "$GITHUB_ACTION_PATH"/functions-lib-to-set-purview-permissions.sh; 
+source $GITHUB_ACTION_PATH/functions-lib-to-set-purview-permissions.sh; 
 
 declare -A rolesMap
 rolesMap["data_reader"]='set-data-reader' 
