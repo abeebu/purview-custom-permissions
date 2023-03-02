@@ -14,10 +14,10 @@ rolesMap["workflow_admin"]='set-workflow-admin'
 IFS=','
 
 #Read the roles into an array based on comma delimiter
-read -a roles <<< "$4"
+read -a roles <<< $INPUT_ROLES
 
 #Assign each role passed in the argument
 for role in "${roles[@]}"
 do
-  ${rolesMap[${role}]} "$1" "$2" "$3"
+  ${rolesMap[${role}]} "$INPUT_PURVIEW_NAME" "$INPUT_OBJECT_ID" "$INPUT_USER_TYPE"
 done

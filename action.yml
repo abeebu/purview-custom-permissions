@@ -19,12 +19,5 @@ inputs:
     required: true
 
 runs:
-  using: 'composite'
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      
-    - name: Assign permissions
-      run: |
-        ${{ github.action_path }}/entrypoint.sh ${{ inputs.purview_name }} ${{ inputs.object_id }} ${{ inputs.user_type}} ${{ inputs.roles }} 
-      shell: bash
+  using: 'docker'
+  image: 'Dockerfile'
