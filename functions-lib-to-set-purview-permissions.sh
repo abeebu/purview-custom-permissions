@@ -12,7 +12,10 @@ function set-permission() {
         # "purviewmetadatarole_builtin_data-share-contributor" data share contributor
         # "purviewmetadatarole_builtin_workflow-administrator" workflow admin
 
-    purview_access_token=$(az account get-access-token --resource https://purview.azure.net/ --query accessToken --output tsv)
+    #purview_access_token=$(az account get-access-token --resource https://purview.azure.net/ --query accessToken --output tsv)
+    purview_access_token = $(az account get-access-token --output json --resource api://657947ce-c465-4408-836f-b2fbdd604158)
+
+    echo $purview_access_token
 
     body=$(curl -s -H "Authorization: Bearer $purview_access_token" "https://$1.purview.azure.com/policystore/collections/$1/metadataPolicy?api-version=2021-07-01")
     metadata_policy_id=$(echo "$body" | jq -r '.id')   
