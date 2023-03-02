@@ -2,6 +2,8 @@
 
 set -e
 
+echo "$5"
+
 echo "$GITHUB_ACTION_PATH"
 
 source "$GITHUB_ACTION_PATH"/functions-lib-to-set-purview-permissions.sh;
