@@ -14,8 +14,6 @@ function set-permission() {
 
     purview_access_token=$(az account get-access-token --resource https://purview.azure.net/ --query accessToken --output tsv)
 
-    echo $purview_access_token
-
     body=$(curl -s -H "Authorization: Bearer $purview_access_token" "https://$1.purview.azure.com/policystore/collections/$1/metadataPolicy?api-version=2021-07-01")
     metadata_policy_id=$(echo "$body" | jq -r '.id')   
 
