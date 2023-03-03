@@ -5,8 +5,13 @@ Managing purview permissions cannot be easily done programmatically because perm
 
 This action allows you to assign any purview permission(s) to a user or security group.
 
-## Usage
+## Sample Usage
+To use the action in a workflow with a service principal for example, you can [create a service principal](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux#create-a-service-principal), connect to github and ensure right permissions to successfully run the workflow.
+### Ensuring Right Permissions
+The identity running the workflow needs to have the following permissions:
+ - A minimum of the `Contributor` and `User Access Administrator` roles on the subscription containing the purview instance. [See how to assign roles to an identity](https://learn.microsoft.com/en-us/cli/azure/role/assignment?view=azure-cli-latest)
 
+ - The identity must also have the `root collection admin` access on the purview instance. [See how to add root collection admin to purview](https://learn.microsoft.com/en-us/cli/azure/purview/account?view=azure-cli-latest#az-purview-account-add-root-collection-admin)
 
 ### Sample Workflow
 The action can be used in your github workflows like below:
@@ -15,10 +20,6 @@ The action can be used in your github workflows like below:
 name: Test pipeline
 
 on: [push]
-
-permissions:
-  id-token: write
-  contents: read
 
 jobs:   
   workflow-test:
